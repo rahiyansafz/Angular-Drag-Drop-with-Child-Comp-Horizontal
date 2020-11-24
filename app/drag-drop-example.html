@@ -1,0 +1,42 @@
+<div>
+  <div class="list">
+    <h2>To do</h2>
+    <cdk-drop
+      #parent
+      (dropped)="drop($event)"
+      [data]="todo"
+      [connectedTo]="connectedChild">
+      <div *ngFor="let item of todo" cdkDrag (cdkDragStarted)="onDragStart($event)">
+        {{item}}
+        <mat-icon cdkDragHandle>reorder</mat-icon>
+      </div>
+    </cdk-drop>
+  </div>
+
+  <app-drag-drop-child></app-drag-drop-child>
+
+</div>
+
+<div>
+  <div class="list horizontal">
+    <h2>Horizontal list</h2>
+    <cdk-drop
+      orientation="horizontal"
+      (dropped)="drop($event)"
+      [data]="horizontalData">
+      <div *ngFor="let item of horizontalData" cdkDrag>
+        {{item}}
+        <mat-icon cdkDragHandle>reorder</mat-icon>
+      </div>
+    </cdk-drop>
+  </div>
+</div>
+
+<div class="list">
+  <h2>Free dragging</h2>
+  <div cdkDrag class="free-draggable">Drag me around</div>
+</div>
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

@@ -1,0 +1,13 @@
+<div class="list">
+  <h2>Done (child comp)</h2>
+  <cdk-drop
+    #child
+    (dropped)="drop($event)"
+    [data]="done"
+    [connectedTo]="connectedParent">
+    <div *ngFor="let item of done" cdkDrag>
+      {{item}}
+      <mat-icon cdkDragHandle>reorder</mat-icon>
+    </div>
+  </cdk-drop>
+</div>
